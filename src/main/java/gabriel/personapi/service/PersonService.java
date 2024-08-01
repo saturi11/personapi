@@ -38,4 +38,9 @@ public class PersonService {
                 .collect(Collectors.toList());
     }
 
+    public PersonDTO FindById(long id) {
+        Person person = personRepository.findById(id).orElseThrow();
+        return personMapper.toDTO(person);
+    }
+
 }
